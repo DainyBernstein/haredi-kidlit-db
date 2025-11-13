@@ -1,4 +1,4 @@
-objectid,filename,creator,title,distlocation,distributor,publisher,publocation,date,series,subjname,subjtopic,subjlocation,genreform,creatoradd,corpadd,type,format,language,display_template,object_location,image_alt_text
+objectid,filename,creator,title,distlocation,distributor,publisher,publication,date,series,subjname,subject,subjlocation,genreform,creatoradd,corpadd,type,format,language,display_template,object_location,image_alt_text
 hk0001,zivan_myfirstbookjewishholidays.jpg,,My first book of Jewish holidays / designed by Dafne Zivan.,,,HaShem's Gems,"Albany, New York",2021,,,Fasts and feasts; Judaism; Juvenile literature; Orthodox judaism; Board books,,Juvenile works; Specimens; Board books; Activity books,Zivan Dafne,,Image;StillImage,image/jpeg,eng,item,,
 hk0002,maddali_myfirstcolorsjewishlens.jpg,Maddali Sarah,My first colors through a Jewish lens / [Sarah Maddali] ; designed by Susannah Levin.,,,HaShem's Gems,"Albany, New York",2021,,,Colors (Religious aspects); Judaism; Juvenile literature; Judaism (Customs and practices); Orthodox judaism; Colors; Toy and movable books,,Juvenile works; Specimens; Board books,Levin Susannah,,Image;StillImage,image/jpeg,eng,item,,
 hk0003,zivan_myfirstnumbersjewishlens.jpg,,My first numbers through a Jewish lens / designed by Dafne Zivan.,,,HaShem's Gems,"Albany, New York",2021,,,Counting; Juvenile literature; Judaism (Customs and practices); Orthodox judaism,,Board books; Juvenile works,Zivan Dafne,,Image;StillImage,image/jpeg,eng,item,,
@@ -1809,3 +1809,4 @@ hk1807,,Rubin Noach,"The safety war : Volume 2 / Noach Rubin, illustrated by Dan
 hk1808,,Liebermann M,Tsiyure parashat ha-shavuʻa = Learn as you color.,,,,,,,,Jewish religious education of children; United states; Juvenile literature; Education,United; States,Juvenile works,,,Image;StillImage,image/jpeg,eng,item,,
 ,,,,,,,,,,,,,,,,Image;StillImage,image/jpeg,eng,item,,
 ,,,,,,,,,,,,,,,,Image;StillImage,image/jpeg,eng,item,,
+
