@@ -16,7 +16,4 @@ description,Description,
 subjname,Person Subject,true,
 subjlocation,Location Subject,true,
 subject,Subjects,true
-type,Type,
-format,Format,
-rights,Rights,
-rightsstatement,Rights Statement,,true
+
