@@ -1,14 +1,21 @@
 field,display_name,browse_link,external_link
 title,Title,
-creator,Creator,
-date,Date Created,
+creator,Author,
+creatoradd,Other Contributors,
+date,Date of Publication,
+publisher,Publisher,
+publication,Publisher Location,
+distributor,Distributor,
+distlocation,Distributor Location,
+corpadd,Contributing Organization,
+genreform,Genre,
+series,Series,
+language,Language,
+langorig,Language of Original,
 description,Description,
+subjname,Person Subject,
+subjlocation,Location Subject,
 subject,Subjects,true
-location,Location
-latitude,Latitude
-longitude,Longitude
-source,Source
-identifier,Source Identifier,,
 type,Type,
 format,Format,
 rights,Rights,
