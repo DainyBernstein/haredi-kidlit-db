@@ -7,7 +7,7 @@ custom-foot: js/timeline-js.html
 {% assign cb_icons = site.pages | where: "name","cb-icons.svg" | first %}
 {% assign icons = cb_icons.icons %}{%- endif -%}
 {%- assign field = site.data.theme.timeline-field | default: page.timeline-field | default: "date" -%}
-{% if site.data.theme.timeline-child-objects == true %}
+{% if site.data.theme.timeline_child_objects %}
 {%- assign items = site.data[site.metadata] | where_exp: 'item','item.objectid' -%}
 {% else %}
 {%- assign items = site.data[site.metadata] | where_exp: 'item','item.objectid' | where_exp: 'item','item.parentid == nil' -%}
