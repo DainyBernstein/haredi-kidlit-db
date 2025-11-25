@@ -60,6 +60,8 @@ metadata: 20251108haredikidlit
 #
 # ignore stuff
 exclude: [docs/, Rakefile, README.md, LICENSE, CITATION.cff, CODE_OF_CONDUCT.md, CONTRIBUTING.md]
+exclude:
+  - assets/data/*.csv
 # compress CSS output
 sass:
   style: compressed
