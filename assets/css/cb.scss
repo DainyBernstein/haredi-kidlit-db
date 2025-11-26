@@ -33,13 +33,13 @@ $theme-colors: map-merge(
 @import "base", "pages", "custom";
 
 /* Item page only: fixed content + scrolling metadata */
-body.page-item .fixed-content {
+#item-content.fixed-content {
     position: sticky;
     top: 1rem;
     height: fit-content;
 }
 
-body.page-item .scrolling-metadata {
+#item-metadata.scrolling-metadata {
     max-height: 90vh;
     overflow-y: auto;
     padding-right: 1rem;
