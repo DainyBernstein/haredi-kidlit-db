@@ -7,12 +7,10 @@ custom-foot: js/timeline-js.html
 {% assign cb_icons = site.pages | where: "name","cb-icons.svg" | first %}
 {% assign icons = cb_icons.icons %}{%- endif -%}
 {%- assign field = site.data.theme.timeline-field | default: page.timeline-field | default: "date" -%}
-{% if site.data.theme.timeline_child_objects %}
-{%- assign items = site.data[site.metadata] | where_exp: 'item','item.objectid' -%}
-{% else %}
-{%- assign items = site.data[site.metadata] | where_exp: 'item','item.objectid' | where_exp: 'item','item.parentid == nil' -%}
+{%- assign items = site.data[site.metadata] -%}
+{% if items %}
+  {%- assign items = items | where_exp: 'item','item[field]' | sort: field -%}
 {% endif %}
-{%- assign items = items | where_exp: 'item','item[field]' | sort: field -%}
 {%- assign raw-dates = items | map: field | compact | uniq -%}
 {%- capture clean-years -%}{% for date in raw-dates %}{% if date contains "-" %}{{ date | strip | split: "-" | first }}{% elsif date contains "/" %}{{ date | strip | split: "/" | last }}{% else %}{{ date | strip }}{% endif %}{% unless forloop.last %};{% endunless %}{%- endfor -%}{%- endcapture -%}
 {%- assign uniqueYears = clean-years | replace: ";;",";" | split: ";" | compact | uniq | sort -%}
