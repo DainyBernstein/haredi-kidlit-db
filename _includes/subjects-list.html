@@ -62,6 +62,7 @@
 
   <li class="ms-3">
     {% assign firstField = fields[0] %}
+    {% assign target = "/" | append: firstField | append: "/" %}
    <a href="{{ target }}?term={{ term | url_encode }}">
   {{ term }}
   <span class="text-muted">({{ count }})</span>
