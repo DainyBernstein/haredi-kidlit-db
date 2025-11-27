@@ -59,8 +59,12 @@
   {% endfor %}
 
   <li class="ms-3">
-    <a href="/browse/#{{ term | url_encode }}">{{ term }}</a>
-    <span class="text-muted">({{ count }})</span>
+    {% assign target = "/" | append: fields | first | append: "/" %}
+   <a href="{{ target }}?term={{ term | url_encode }}">
+  {{ term }}
+  <span class="text-muted">({{ count }})</span>
+</a>
+
   </li>
 
 {% endfor %}
