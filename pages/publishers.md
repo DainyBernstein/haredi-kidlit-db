@@ -1,6 +1,6 @@
 ---
 title: Publishers
-layout: subjects
+layout: browse
 fields: publisher;publisher2;distributor
 permalink: /publishers/
 ---
