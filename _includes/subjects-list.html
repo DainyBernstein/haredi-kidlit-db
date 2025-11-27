@@ -1,5 +1,5 @@
 {% assign all_terms = "" | split: "|" %}
-{% assign fields = include.field | split: ";" %}
+{% assign fields = include.fields | split: ";" %}
 
 {%- comment -%} Collect all values from all specified fields {%- endcomment -%}
 {% for item in site.data[site.metadata] %}
