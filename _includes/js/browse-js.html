@@ -1,3 +1,20 @@
+// Read URL parameter ?term=
+const params = new URLSearchParams(window.location.search);
+const presetTerm = params.get("term");
+
+if (presetTerm) {
+    document.addEventListener("DOMContentLoaded", function () {
+        // pre-fill search box
+        const box = document.getElementById("filterTextBox");
+        if (box) {
+            box.value = presetTerm;
+        }
+
+        // apply filter automatically
+        submitFilter();
+    });
+}
+
 {%- if site.data.theme.icons -%}{% assign icons = site.data.theme.icons %}{% else %}
 {% assign cb_icons = site.pages | where: "name","cb-icons.svg" | first %}
 {% assign icons = cb_icons.icons %}{%- endif -%}
