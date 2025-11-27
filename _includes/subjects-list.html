@@ -1,7 +1,5 @@
 {% assign target = include.page %}
 
-<p>DEBUG target = {{ target }}</p>
-
 {% assign all_terms = "" | split: "|" %}
 {% assign fields = include.fields | split: ";" %}
 
@@ -64,7 +62,7 @@
 
   <li class="ms-3">
     {% assign target = include.page %}
-   <a href="{{ target }}?term={{ term | url_encode }}">
+   <a href="{{ target | relative_url }}?term={{ term | url_encode }}">
   {{ term }}
   <span class="text-muted">({{ count }})</span>
 </a>
