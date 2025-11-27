@@ -1,0 +1,19 @@
+{% assign terms = "" | split: "|" %}
+
+{% for item in site.data[site.metadata] %}
+  {% assign values = item[include.field] | split: ";" %}
+  {% for val in values %}
+    {% assign clean = val | strip %}
+    {% assign terms = terms | push: clean %}
+  {% endfor %}
+{% endfor %}
+
+{% assign terms = terms | compact | uniq | sort %}
+
+<ul class="list-unstyled">
+{% for term in terms %}
+  <li>
+    {{ term }}
+  </li>
+{% endfor %}
+</ul>
