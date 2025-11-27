@@ -26,17 +26,17 @@ permalink: /browse-metadata/
 
   <!-- CREATORS -->
   <div class="tab-pane fade show active" id="creators">
-    {% include subjects-list.html field="creator" %}
+    {% include subjects-list.html fields="creator" %}
   </div>
 
   <!-- PUBLISHERS -->
   <div class="tab-pane fade" id="publishers">
-    {% include subjects-list.html field="publisher;publisher2;" %}
+    {% include subjects-list.html fields="publisher;publisher2;" %}
   </div>
 
   <!-- SERIES -->
   <div class="tab-pane fade" id="series">
-    {% include subjects-list.html field="series" %}
+    {% include subjects-list.html fields="series" %}
   </div>
 
 </div>
