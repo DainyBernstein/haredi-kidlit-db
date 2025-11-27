@@ -1,6 +1,7 @@
 {% assign all_terms = "" | split: "|" %}
 {% assign fields = include.field | split: ";" %}
 
+{%- comment -%} Collect all values from all specified fields {%- endcomment -%}
 {% for item in site.data[site.metadata] %}
   {% for field in fields %}
     {% assign values = item[field] | split: ";" %}
@@ -13,10 +14,55 @@
   {% endfor %}
 {% endfor %}
 
+{%- comment -%} Unique + alphabetical {%- endcomment -%}
 {% assign terms = all_terms | uniq | sort %}
 
-<ul class="list-unstyled">
+{%- comment -%} Build set of starting letters A–Z {%- endcomment -%}
+{% assign letters = "" | split: "|" %}
 {% for term in terms %}
-  <li>{{ term }}</li>
+  {% assign first = term | slice: 0,1 | upcase %}
+  {% assign letters = letters | push: first %}
 {% endfor %}
+{% assign letters = letters | uniq | sort %}
+
+{%- comment -%} A–Z navigation bar {%- endcomment -%}
+<nav class="mb-3">
+  {% for l in letters %}
+    <a href="#letter-{{ l }}" class="me-2">{{ l }}</a>
+  {% endfor %}
+</nav>
+
+<ul class="list-unstyled">
+
+{% assign current_letter = "" %}
+
+{% for term in terms %}
+  {% assign first_letter = term | slice: 0,1 | upcase %}
+
+  {%- comment -%} Letter header {%- endcomment -%}
+  {% if first_letter != current_letter %}
+    {% assign current_letter = first_letter %}
+    <li id="letter-{{ current_letter }}">
+      <strong>{{ current_letter }}</strong>
+    </li>
+  {% endif %}
+
+  {%- comment -%} Count occurrences {%- endcomment -%}
+  {% assign count = 0 %}
+  {% for item in site.data[site.metadata] %}
+    {% for field in fields %}
+      {% if item[field] contains term %}
+        {% assign count = count | plus: 1 %}
+        {% break %}
+      {% endif %}
+    {% endfor %}
+  {% endfor %}
+
+  <li class="ms-3">
+    <a href="/browse/#{{ term | url_encode }}">{{ term }}</a>
+    <span class="text-muted">({{ count }})</span>
+  </li>
+
+{% endfor %}
+
 </ul>
