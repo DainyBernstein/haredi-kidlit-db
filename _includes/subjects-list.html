@@ -1,9 +1,22 @@
-<ul>
+{% assign all_terms = "" | split: "|" %}
+{% assign fields = include.field | split: ";" %}
+
 {% for item in site.data[site.metadata] %}
-  <li>
-    P: {{ item.publisher }} |
-    P2: {{ item.publisher2 }} |
-    D: {{ item.distributor }}
-  </li>
+  {% for field in fields %}
+    {% assign values = item[field] | split: ";" %}
+    {% for val in values %}
+      {% assign clean = val | strip %}
+      {% if clean != "" %}
+        {% assign all_terms = all_terms | push: clean %}
+      {% endif %}
+    {% endfor %}
+  {% endfor %}
+{% endfor %}
+
+{% assign terms = all_terms | uniq | sort %}
+
+<ul class="list-unstyled">
+{% for term in terms %}
+  <li>{{ term }}</li>
 {% endfor %}
 </ul>
