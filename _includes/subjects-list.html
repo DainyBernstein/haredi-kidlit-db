@@ -1,3 +1,5 @@
+{% assign target = include.page %}
+
 <p>DEBUG target = {{ target }}</p>
 
 {% assign all_terms = "" | split: "|" %}
@@ -61,7 +63,6 @@
   {% endfor %}
 
   <li class="ms-3">
-    {% assign firstField = fields[0] %}
     {% assign target = include.page %}
    <a href="{{ target }}?term={{ term | url_encode }}">
   {{ term }}
