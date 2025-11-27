@@ -61,7 +61,7 @@
 
   <li class="ms-3">
     {% assign target = include.page %}
-   <a href="{{ target | relative_url }}#{{ term | url_encode }}">
+   <a href="{{ target | relative_url }}#{{ term | uri_escape }}">
   {{ term }}
   <span class="text-muted">({{ count }})</span>
 </a>
