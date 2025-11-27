@@ -31,7 +31,7 @@ permalink: /browse-metadata/
 
   <!-- PUBLISHERS -->
   <div class="tab-pane fade" id="publishers">
-    {% include subjects-list.html field="publisher;publisher2;distributor" %}
+    {% include subjects-list.html field="publisher;publisher2;" %}
   </div>
 
   <!-- SERIES -->
