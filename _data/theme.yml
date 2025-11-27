@@ -23,14 +23,14 @@ browse-buttons: true # true/false, adds previous/next arrows to item pages
 ##########
 # SUBJECTS PAGE
 #
-subjects-fields: subject;creator # set the field to be featured in the cloud (if left blank, none will be generated)
+subjects-fields: subject;creator;publisher;publisher2;distributor;series;seriesadd # set the field to be featured in the cloud (if left blank, none will be generated)
 subjects-min: 1 # min size for subject cloud, too many terms = slow load time!
 subjects-stopwords: # boxers;boxing;boxer # set of subjects separated by ;, e.g. boxers;boxing
 
 ##########
 # LOCATIONS PAGE
 #
-locations-fields: location # set the field to be featured in the cloud
+locations-fields: publisherloc;publisher2loc;distloc # set the field to be featured in the cloud
 locations-min: 1 # min size for subject cloud, too many terms = slow load time!
 locations-stopwords: # set of subjects separated by ; that will be removed from display, e.g. boxers;boxing
 
@@ -59,9 +59,9 @@ year-nav-increment: 5 # set increments when auto gen nav years
 #
 # add metadata fields for export in data downloads (tip: paste in first row of csv)
 # comma delimited list, reference url is automatic
-metadata-export-fields: "title,creator,date,description,subject,location,latitude,longitude,source,identifier,type,format,language,rights,rightsstatement"
+metadata-export-fields: "title,creator,date,publisher,publisherloc,publisher2,publisher2loc,distributor,distloc,edition,illustration,pages,size,series,volume,seriesadd,volumeadd,note,translatedfrom,bibliography,contents,summary,subject,language"
 # generate a facets list for given fields, comma delimited
-metadata-facets-fields: "subject,creator,format"
+metadata-facets-fields: "subject,creator,publisher,publisher2,distributor"
 
 ##########
 # COMPOUND OBJECTS
@@ -69,12 +69,12 @@ metadata-facets-fields: "subject,creator,format"
 # Ignore this section if you are not including any compound objects
 # Note, like other items, child objects will only appear in visualizations if they have the correct metadata (lat long for map; date for timeline)
 # select true below if you'd like your compound object's child objects to appear in any of the pages or features listed
-map_child_objects: true # true / false - if true, and if child item has latitude and longitude, child objects will be displayed on map
-timeline_child_objects: true # true / false - if true, and if child object has date, child objects will appear as thumbnails on timeline page
-data_child_objects: false # true / false - if true, child objects will appear linked in table on data page
-carousel_child_objects: false # true / false - if true, child objects will appear on homepage carousel
-browse_child_objects: false # true / false - if true, child objects will appear on browse page and child objects' metadata will populate cloud pages like Subjects page and Locations page, as well as featured terms boxes on the home page
-search_child_objects: true # true / false - if true, child objects will appear on on search page along with parent objects
+#map_child_objects: true # true / false - if true, and if child item has latitude and longitude, child objects will be displayed on map
+#timeline_child_objects: true # true / false - if true, and if child object has date, child objects will appear as thumbnails on timeline page
+#data_child_objects: false # true / false - if true, child objects will appear linked in table on data page
+#carousel_child_objects: false # true / false - if true, child objects will appear on homepage carousel
+#browse_child_objects: false # true / false - if true, child objects will appear on browse page and child objects' metadata will populate cloud pages like Subjects page and Locations page, as well as featured terms boxes on the home page
+#search_child_objects: true # true / false - if true, child objects will appear on on search page along with parent objects
 
 ##########
 # ADVANCED OPTIONS
