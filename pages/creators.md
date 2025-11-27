@@ -1,6 +1,6 @@
 ---
 title: Creators
-layout: subjects
+layout: browse
 fields: creator
-permalink: /creators.html
+permalink: /creators/
 ---
