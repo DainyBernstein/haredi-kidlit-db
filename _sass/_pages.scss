@@ -42,6 +42,22 @@
 
 /* browse */
 
+/* browse cards */
+
+#browse .card {
+    max-width: 420px;        // controls overall card size
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#browse .card-img-limit {
+    max-height: 240px;       // controls image height
+    width: 100%;
+    object-fit: contain;     // show entire image without cropping
+    background-color: ##933b3b; // optional, avoids gray gaps looking bad
+}
+
+
 /* map */
 #map { height: 750px; z-index: 98; }
 .map-thumb {
