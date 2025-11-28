@@ -1,15 +1,21 @@
+{% assign role_map = 
+  "publisher:Publisher;
+   publisher2:Imprint / Sponsor;
+   distributor:Distributor" | split:";" %}
+
 {% assign target = include.page %}
 {% assign all_terms = "" | split: "|" %}
 {% assign fields = include.fields | split: ";" %}
 
-{%- comment -%} Collect all values from all specified fields {%- endcomment -%}
+{%- comment -%} Collect all values from all specified fields and label with role {%- endcomment -%}
 {% for item in site.data[site.metadata] %}
   {% for field in fields %}
     {% assign values = item[field] | split: ";" %}
     {% for val in values %}
       {% assign clean = val | strip %}
       {% if clean != "" %}
-        {% assign all_terms = all_terms | push: clean %}
+        {% assign entry = field | append: "::" | append: clean %}
+        {% assign all_terms = all_terms | push: entry %}
       {% endif %}
     {% endfor %}
   {% endfor %}
@@ -21,7 +27,17 @@
 {%- comment -%} Build set of starting letters A–Z {%- endcomment -%}
 {% assign letters = "" | split: "|" %}
 {% for term in terms %}
-  {% assign first = term | slice: 0,1 | upcase %}
+  {% assign parts = term | split: "::" %}
+  {% assign role = parts[0] %}
+  {% assign name = parts[1] %}
+  {% assign role_label = role %}
+  {% for r in role_map %}
+    {% assign pair = r | split: ":" %}
+    {% if pair[0] == role %}
+      {% assign role_label = pair[1] %}
+    {% endif %}
+  {% endfor %}
+  {% assign first = name | slice: 0,1 | upcase %}
   {% assign letters = letters | push: first %}
 {% endfor %}
 {% assign letters = letters | uniq | sort %}
@@ -38,7 +54,18 @@
 {% assign current_letter = "" %}
 
 {% for term in terms %}
-  {% assign first_letter = term | slice: 0,1 | upcase %}
+  {% assign parts = term | split: "::" %}
+  {% assign role = parts[0] %}
+  {% assign name = parts[1] %}
+  {% assign role_label = role %}
+  {% for r in role_map %}
+    {% assign pair = r | split: ":" %}
+    {% if pair[0] == role %}
+      {% assign role_label = pair[1] %}
+    {% endif %}
+  {% endfor %}
+
+  {% assign first_letter = name | slice: 0,1 | upcase %}
 
   {%- comment -%} Letter header {%- endcomment -%}
   {% if first_letter != current_letter %}
@@ -52,7 +79,7 @@
   {% assign count = 0 %}
   {% for item in site.data[site.metadata] %}
     {% for field in fields %}
-      {% if item[field] contains term %}
+      {% if item[field] contains name %}
         {% assign count = count | plus: 1 %}
         {% break %}
       {% endif %}
@@ -60,9 +87,9 @@
   {% endfor %}
 
   <li class="ms-3">
-    {% assign target = include.page %}
-   <a href="{{ target | relative_url }}#{{ term | uri_escape }}">
-  {{ term }}
+   <a href="{{ target | relative_url }}#{{ name | uri_escape }}">
+  {{ name }}
+  <small class="text-muted">({{ role_label }})</small>
   <span class="text-muted">({{ count }})</span>
 </a>
 
