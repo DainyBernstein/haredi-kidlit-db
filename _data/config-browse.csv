@@ -1,10 +1,10 @@
 field,display_name,btn,hidden,sort_name
 title,Title,,true,
 date,Date,,,Date
-creator,Author / Illustrator,true,,Author / Illustrator
-publisher,Publisher,true,,
-publisher2,Sponsor / Imprint,true,,
-distributor,Distributor,true,,
-series,Series,true,,
-seriesadd,Also Part Of,true,,
+creator,Author / Illustrator,,,Author / Illustrator
+publisher,,,true,
+publisher2,,,true,
+distributor,,,true,
+series,Series,,,
+seriesadd,Series,,,
 subjects,,,true,
