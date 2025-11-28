@@ -1,8 +1,7 @@
 field,display_name,btn,hidden,sort_name
 title,,,true,
 date,,,,Date
-creator,,true,,Creators
-publisher|publisher2|distributor,,true,,
-series,,true,,
-seriesadd,,true,,
+creator,Creators,true,,Creators
+publisher|publisher2|distributor,Publishers,true,,
+series|seriesadd,Series,true,,
 subjects,,,true,
