@@ -6,5 +6,5 @@ publisher|publisher2|distributor,Publishers,true,,
 series|seriesadd,Series,true,,
 subjects,,,true,
 name,,,,"Name"
-type,,,,true,
-format,,,,true,
+type,,,true,
+format,,,true,
