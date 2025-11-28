@@ -1,3 +1,5 @@
+<p><strong>AUTHORITY COUNT:</strong> {{ site.data.authority | size }}</p>
+
 {% assign term = page.url | split: "#" | last | uri_decode %}
 
 {% if term %}
