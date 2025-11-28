@@ -146,6 +146,16 @@ function filterItems(arr,q) {
     });
     {% endif %}
 
+    // Page-level exclude (hide authorities from main Browse)
+    {% if page.exclude_field %}
+    var bannedFields = "{{ page.exclude_field }}".split("|");
+    var bannedValues = "{{ page.exclude_value }}".split("|");
+    filteredItems = filteredItems.filter(item => {
+          return !bannedFields.some(field => bannedValues.includes(item[field]));
+    });
+    {% endif %}
+
+
     // add number 
     document.querySelector("#numberOf").innerHTML = filteredItems.length + " of " + items.length + " items";
     
