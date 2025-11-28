@@ -1,6 +1,6 @@
 ---
-title: Publishers
 layout: browse
-fields: publisher;publisher2;distributor
-permalink: /publishers/
+title: Publishers
+filter_field: publisher|publisher2|distributor
+sort: name
 ---
