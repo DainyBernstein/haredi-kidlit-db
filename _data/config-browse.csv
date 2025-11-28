@@ -2,9 +2,8 @@ field,display_name,btn,hidden,sort_name
 title,Title,,true,
 date,,,,Date
 creator,,true,,Author / Illustrator
-publisher,,,true,
-publisher2,,,true,
-distributor,,,true,
+field,display_name,btn,hidden
+publisher|publisher2|distributor,Publishers,,false,
 series,,true,,
 seriesadd,,true,,
 subjects,,,true,
