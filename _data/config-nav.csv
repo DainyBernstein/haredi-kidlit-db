@@ -5,9 +5,9 @@ the Project,/about.html,About
 the Team,/about.html,About
 Browse,,
 All Titles,/browse.html,Browse
-People,/browse-metadata/,Browse
-Publishers,/browse-metadata/,Browse
-Series,/browse-metadata/,Browse
+People,/creators.md/,Browse
+Publishers,/publishers.md/,Browse
+Series,/series.md/,Browse
 Subjects,/subjects.html,Browse
 Locations,/locations.html,
 Timeline,/timeline.html,
