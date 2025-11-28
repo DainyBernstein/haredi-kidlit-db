@@ -1,35 +1,28 @@
-<p><strong>AUTHORITY COUNT:</strong> {{ site.data.authority | size }}</p>
-<p><strong>TERM:</strong> "{{ term }}"</p>
+<div id="authority-panel"></div>
 
-{% assign term = page.url | split: "#" | last | uri_decode %}
+<script>
+  const term = decodeURIComponent(window.location.hash.slice(1));
 
-{% if term %}
-  {% assign authority = site.data.authority | where: "name", term | first %}
+  if (term) {
+    fetch('{{ site.baseurl }}/assets/data/authority.json')
+      .then(res => res.json())
+      .then(data => {
+        const match = data.find(row => row.name === term);
+        if (!match) return;
 
-  {% if authority %}
-  <div class="card mb-4 border-secondary">
-    <div class="card-body">
-      <h3 class="h5">{{ authority.name }}</h3>
+        let html = `<div class="card mb-4 border-secondary"><div class="card-body">
+          <h3 class="h5">${match.name}</h3><ul class="list-unstyled mb-2">`;
 
-      <ul class="list-unstyled mb-2">
-        {% if authority.lc %}
-          <li>📚 <a href="{{ authority.lc }}" target="_blank">Library of Congress</a></li>
-        {% endif %}
-        {% if authority.nli %}
-          <li>🇮🇱 <a href="{{ authority.nli }}" target="_blank">National Library of Israel</a></li>
-        {% endif %}
-        {% if authority.viaf %}
-          <li>🌐 <a href="{{ authority.viaf }}" target="_blank">VIAF</a></li>
-        {% endif %}
-        {% if authority.wikidata %}
-          <li>🧠 <a href="{{ authority.wikidata }}" target="_blank">Wikidata</a></li>
-        {% endif %}
-      </ul>
+        if (match.lc) html += `<li>📚 <a href="${match.lc}" target="_blank">Library of Congress</a></li>`;
+        if (match.nli) html += `<li>🇮🇱 <a href="${match.nli}" target="_blank">National Library of Israel</a></li>`;
+        if (match.viaf) html += `<li>🌐 <a href="${match.viaf}" target="_blank">VIAF</a></li>`;
+        if (match.wikidata) html += `<li>🧠 <a href="${match.wikidata}" target="_blank">Wikidata</a></li>`;
 
-      {% if authority.notes %}
-        <p class="text-muted small">{{ authority.notes }}</p>
-      {% endif %}
-    </div>
-  </div>
-  {% endif %}
-{% endif %}
+        html += `</ul>`;
+        if (match.notes) html += `<p class="text-muted small">${match.notes}</p>`;
+        html += `</div></div>`;
+
+        document.getElementById('authority-panel').innerHTML = html;
+      });
+  }
+</script>
