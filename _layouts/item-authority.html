@@ -1,0 +1,50 @@
+---
+layout: page
+---
+
+<div class="container my-4">
+
+  <h1>{{ page.title }}</h1>
+
+  {% if page.object_type %}
+    <p class="text-muted"><strong>Type:</strong> {{ page.object_type | capitalize }}</p>
+  {% endif %}
+
+  <ul class="list-unstyled">
+    {% if page.lc %}
+      <li>📚 <a href="{{ page.lc }}" target="_blank">Library of Congress</a></li>
+    {% endif %}
+    {% if page.viaf %}
+      <li>🌐 <a href="{{ page.viaf }}" target="_blank">VIAF</a></li>
+    {% endif %}
+    {% if page.nli %}
+      <li>🇮🇱 <a href="{{ page.nli }}" target="_blank">National Library of Israel</a></li>
+    {% endif %}
+    {% if page.wiki %}
+      <li>🧠 <a href="{{ page.wiki }}" target="_blank">Wikipedia / Wikidata</a></li>
+    {% endif %}
+  </ul>
+
+  {% if page.note %}
+    <p class="mt-3">{{ page.note }}</p>
+  {% endif %}
+
+  <hr>
+
+  <h2>Related items</h2>
+
+  <ul>
+  {% assign id = page.objectid %}
+  {% for item in site.data[site.metadata] %}
+    {% if item.publisher == id or item.publisher2 == id or item.distributor == id
+          or item.creator == id or item.series == id %}
+      <li>
+        <a href="{{ site.baseurl }}/item.html?id={{ item.objectid }}">
+          {{ item.title }}
+        </a>
+      </li>
+    {% endif %}
+  {% endfor %}
+  </ul>
+
+</div>
