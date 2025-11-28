@@ -136,6 +136,14 @@ function filterItems(arr,q) {
                 filteredItems.push(arr[i]);
             }
         }
+        // Page-level filtering (People / Publishers / Series)
+        {% if page.filter_field %}
+        var allowedFields = "{{ page.filter_field }}".split("|");
+        filteredItems = filteredItems.filter(item => {
+            return allowedFields.some(field => item[field]);
+        });
+        {% endif %}
+
     }
     // add number 
     document.querySelector("#numberOf").innerHTML = filteredItems.length + " of " + items.length + " items";
