@@ -1,6 +1,6 @@
 ---
-title: Series
 layout: browse
-fields: series
-permalink: /series/
+title: Series
+filter_field: series|seriesadd
+sort: name
 ---
