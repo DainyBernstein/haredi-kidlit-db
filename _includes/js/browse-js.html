@@ -163,10 +163,6 @@ function filterItems(arr,q) {
       });
     {% endif %}
 
-    // Remove authority objects from main Browse page
-    {% if page.title == "Browse" %}
-    filteredItems = filteredItems.filter(item => !item.object_type);
-    {% endif %}
     
     // add number 
     document.querySelector("#numberOf").innerHTML = filteredItems.length + " of " + items.length + " items";
