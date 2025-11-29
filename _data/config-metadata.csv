@@ -24,3 +24,7 @@ bibliography,Bibliographic References,,
 contents,Contents,,
 summary,Summary,,
 object_type,,,
+lc,Library of Congress,,true
+nli,National Library of Israel,,true
+viaf,VIAF,,true
+wiki,Wikidata,,true
