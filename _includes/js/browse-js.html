@@ -120,6 +120,7 @@ function makeCard(obj) {
 function filterItems(arr,q) {
     // show loading icon
     loadingIcon.classList.remove("d-none");
+  
     // dont filter if no q 
     if (q=="") { 
         var filteredItems = arr; 
@@ -138,32 +139,38 @@ function filterItems(arr,q) {
         }
     }
 
-    // Page-level filtering (People / Publishers / Series)
+    // Page-level *include* filter (People / Publishers / Series)
     {% if page.filter_field %}
-    var allowedFields = "{{ page.filter_field }}".split("|");
-    filteredItems = filteredItems.filter(item => {
-        return allowedFields.some(field => item[field]);
-    });
+      var allowedFields = "{{ page.filter_field }}".split("|");
+      {% if page.filter_value %}
+        var allowedValues = "{{ page.filter_value }}".split("|");
+        filteredItems = filteredItems.filter(item => {
+          return allowedFields.some(field => allowedValues.includes(item[field]));
+        });
+      {% else %}
+        filteredItems = filteredItems.filter(item => {
+          return allowedFields.some(field => item[field]);
+        });
+      {% endif %}
     {% endif %}
 
-    // Page-level exclude (hide authorities from main Browse)
+    // Page-level *exclude* filter (hide authorities from main Browse)
     {% if page.exclude_field %}
-    var bannedFields = "{{ page.exclude_field }}".split("|");
-    var bannedValues = "{{ page.exclude_value }}".split("|");
-    filteredItems = filteredItems.filter(item => {
-          return !bannedFields.some(field => bannedValues.includes(item[field]));
-    });
+      var bannedFields = "{{ page.exclude_field }}".split("|");
+      var bannedValues = "{{ page.exclude_value }}".split("|");
+      filteredItems = filteredItems.filter(item => {
+        return !bannedFields.some(field => bannedValues.includes(item[field]));
+      });
     {% endif %}
 
-
-    // add number 
-    document.querySelector("#numberOf").innerHTML = filteredItems.length + " of " + items.length + " items";
-    
     // Remove authority objects from main Browse page
     {% if page.title == "Browse" %}
     filteredItems = filteredItems.filter(item => !item.object_type);
     {% endif %}
-
+    
+    // add number 
+    document.querySelector("#numberOf").innerHTML = filteredItems.length + " of " + items.length + " items";
+    
     
     // add stuff, make cards first in giant var, then add all at once to speed things up
     var cards = "";
