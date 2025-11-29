@@ -5,7 +5,7 @@
 ##########
 
 ##########
-# URL VARIABLES [optional if using GitHub Pages!]
+  # URL VARIABLES [optional if using GitHub Pages!]
 #
 # url is site domain, full URL to the production location of your collection
 # on GitHub Pages follows the pattern username.github.io
@@ -14,30 +14,30 @@
 # on GitHub Pages it is your github repository's name prefixed with a /
 #baseurl: /collectionbuilder-gh 
 # location of code, the full url to your github repository
-source-code: https://github.com/CollectionBuilder/collectionbuilder-gh
+source-code: https://github.com/dainybernstein/haredi-kidlit-db
 
 ##########
-# SITE SETTINGS
+  # SITE SETTINGS
 #
 # title of site appears in banner
-title: CollectionBuilder-GH 
+title: American Haredi Children's Texts 
 # tagline, a short phrase that will appear throughout the site in the top banner
-tagline: a template for creating simple digital exhibits
+tagline: a database of texts produced by American Haredi publishers and/or read by American Haredi children
 # description appears in meta tags and other locations
 # this description might appear in search result lists, keep around 160 characters max
-description: "CollectionBuilder-GH is a template for creating small digital collection exhibits on GitHub Pages designed for teaching digital library skills"
+description: "American Haredi Children's Texts is a living collection of metadata designed to aid in the study of American Haredi culture"
 # creator of the digital collection, to appear in meta tags; we typically use our GitHub usernames but feel free to just use your name
-author: CollectionBuilder
+author: DainyBernstein
 
 ##########
-# COLLECTION SETTINGS
+  # COLLECTION SETTINGS
 #
 # Set the metadata for your collection (the name of the csv file in your _data directory that describes the objects in your collection) 
 # Use the filename of your CSV **without** the ".csv" extension! E.g. _data/demo-metadata.csv --> "demo-metadata"
 metadata: demo-metadata
 
 ##########
-# Site/Organization Branding 
+  # Site/Organization Branding 
 #   Uncomment these and enter information for your organization (replacing the CDIL links and name below) if you'd like to brand your site with a logo
 #
 # organization-name: "Center for Digital Inquiry and Learning (CDIL)"
@@ -46,13 +46,13 @@ metadata: demo-metadata
 # organization-logo-nav: https://cdil.lib.uidaho.edu/assets/img/logo.png
 
 ##########
-# ROBOTS EXCLUDE
+  # ROBOTS EXCLUDE
 #
 # set noindex to true if you do NOT want Google to index your site
 # noindex: true 
 
 ##########
-# BUILD SETTINGS 
+  # BUILD SETTINGS 
 #
 # Note: use environment variable on build command to include analytics
 # JEKYLL_ENV=production jekyll build
