@@ -29,7 +29,9 @@ function displayItem(record, prev_id, next_id, compound_object) {
     document.getElementById("bc-title").innerHTML = objectTitle;
 
     // AUTHORITY RECORD HANDLING
-if (record.object_type) {
+    console.log("AUTHORITY TYPE:", record.object_type);
+    if (record.object_type) {
+
 
     // Set title
     document.getElementById("item-title").innerText = record.title;
