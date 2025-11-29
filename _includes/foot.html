@@ -10,3 +10,8 @@
 {% for f in feet %}{% include {{ f }} %}
 {% endfor %}
 {%- endif -%}
+{% if page.custom-foot %}
+  {% for file in page.custom-foot | split: ";" %}
+    {% include {{ file }} %}
+  {% endfor %}
+{% endif %}
