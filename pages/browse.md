@@ -1,7 +1,6 @@
 ---
 title: Browse
 layout: browse
-sort: title
 permalink: /browse.html
 
 # exclude authority objects from main browse
