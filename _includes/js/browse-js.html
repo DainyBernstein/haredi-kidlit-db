@@ -26,6 +26,8 @@ if (presetTerm) {
 {%- assign fields = site.data.config-browse -%}
 <script>
 
+alert("BROWSE-JS LOADED");
+
 /* add items */
 var items = [
     {% for i in items %}
@@ -158,12 +160,6 @@ function filterItems(arr,q) {
 
     // add number 
     document.querySelector("#numberOf").innerHTML = filteredItems.length + " of " + items.length + " items";
-    
-    // Remove authority objects from main Browse page
-    {% if page.title == "Browse" %}
-    filteredItems = filteredItems.filter(item => !item.object_type);
-    {% endif %}
-
     
     // add stuff, make cards first in giant var, then add all at once to speed things up
     var cards = "";
