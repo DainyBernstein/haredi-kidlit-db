@@ -53,12 +53,11 @@ function displayItem(record, prev_id, next_id, compound_object) {
     let related = "<h3>Related items</h3><ul>";
 
     cb_items.forEach(obj => {
-        cb_items.forEach(obj => {
-    if (obj.publisher == record.title ||
-        obj.publisher2 == record.title ||
-        obj.distributor == record.title ||
-        obj.creator == record.title ||
-        obj.series == record.title) {            
+        if (obj.publisher == record.objectid ||
+            obj.publisher2 == record.objectid ||
+            obj.distributor == record.objectid ||
+            obj.creator == record.objectid ||
+            obj.series == record.objectid) {
                 related += `<li><a href="{{ '/item.html?id=' | relative_url }}${obj.objectid}">${obj.title}</a></li>`;
         }
     });
