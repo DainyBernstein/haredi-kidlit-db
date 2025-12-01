@@ -4,8 +4,6 @@
 {%- assign fields = site.data.config-metadata -%}
 {%- assign stubs = site.data.config-nav | map: 'stub' | join: ';' -%}
 {%- assign items = site.data[site.metadata] | where_exp: 'item','item.objectid' -%}
-alert("ITEM-JS LOADED");
-
 <script>
 /* add item data */
 var cb_items = [ 
