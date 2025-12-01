@@ -27,47 +27,6 @@ function displayItem(record, prev_id, next_id, compound_object) {
     var objectTitle = record.title;
     document.getElementById("bc-title").innerHTML = objectTitle;
 
-    // AUTHORITY RECORD HANDLING
-if (record.object_type) {
-
-    // Set title
-    document.getElementById("item-title").innerText = record.title;
-    document.getElementById("item-format").innerHTML = "";
-    
-    // Remove media area
-    document.getElementById("item-content").innerHTML = "";
-
-    // Build authority metadata block
-    let meta = "";
-
-    if (record.lc) meta += `<p>📚 <a href="${record.lc}" target="_blank">Library of Congress</a></p>`;
-    if (record.viaf) meta += `<p>🌐 <a href="${record.viaf}" target="_blank">VIAF</a></p>`;
-    if (record.nli) meta += `<p>🇮🇱 <a href="${record.nli}" target="_blank">National Library of Israel</a></p>`;
-    if (record.wiki) meta += `<p>🧠 <a href="${record.wiki}" target="_blank">Wikipedia / Wikidata</a></p>`;
-    if (record.note) meta += `<p>${record.note}</p>`;
-
-    // Related items
-    let related = "<h3>Related items</h3><ul>";
-
-    cb_items.forEach(obj => {
-        if (obj.publisher == record.objectid ||
-            obj.publisher2 == record.objectid ||
-            obj.distributor == record.objectid ||
-            obj.creator == record.objectid ||
-            obj.series == record.objectid) {
-                related += `<li><a href="{{ '/item.html?id=' | relative_url }}${obj.objectid}">${obj.title}</a></li>`;
-        }
-    });
-
-    related += "</ul>";
-
-    document.getElementById("item-metadata").innerHTML = meta + related;
-
-    // STOP further processing — do not treat authority like media
-    return;
-}
-
-
     /* get item format for item title */
     var itemFormat;
     if (compound_object.length > 0) {
