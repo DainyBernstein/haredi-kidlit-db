@@ -1,5 +1,5 @@
 field,display_name,btn,hidden,sort_name
-title,BROWSE TITLE TEST,,true,
+title,,,true,
 date,,,,Date
 creator,Creators,true,,Creators
 publisher|publisher2|distributor,Publishers,true,,
