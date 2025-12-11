@@ -22,7 +22,7 @@ source-code: https://github.com/DainyBernstein/haredi-kidlit-db
 # title of site appears in banner
 title: American Haredi Youth Literature 
 # tagline, a short phrase that will appear throughout the site in the top banner
-tagline: a collection of book published by American Haredi publishers and/or read by American Haredi children and teens
+tagline: a collection of books published by American Haredi publishers and/or read by American Haredi children and teens
 # description appears in meta tags and other locations
 # this description might appear in search result lists, keep around 160 characters max
 description: "CollectionBuilder-GH is a template for creating small digital collection exhibits on GitHub Pages designed for teaching digital library skills"
